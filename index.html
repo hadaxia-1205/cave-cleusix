@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cave Cleusix – Vins de Caractère, Terroir & Passion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F5F0E8;
+  --parchment: #EDE6D6;
+  --gold: #B8935A;
+  --wine: #5C1A1A;
+  --wine-mid: #7A2828;
+  --dark: #1A1410;
+  --text: #2C2218;
+  --muted: #7A6E62;
+  --border: rgba(184,147,90,0.25);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(245,240,232,0.95); backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+  transition: all 0.3s ease;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.nav-logo img { height: 44px; width: auto; }
+.nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); letter-spacing: 0.08em; }
+.nav-logo-text span { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-cta { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--wine); border: 0.5px solid var(--wine); padding: 0.5rem 1.2rem; text-decoration: none; transition: all 0.25s; }
+.nav-cta:hover { background: var(--wine); color: var(--cream); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; position: relative; display: flex; align-items: flex-end;
+  padding-bottom: 5rem; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('images/paysage3lavueengrand.png');
+  background-size: cover; background-position: center 30%;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,20,16,0.85) 0%, rgba(26,20,16,0.3) 50%, rgba(26,20,16,0.1) 100%);
+}
+.hero-content { position: relative; z-index: 1; padding: 0 3rem; max-width: 800px; }
+.hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: block; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; color: #F5F0E8; margin-bottom: 1.5rem; font-weight: 400; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-subtitle { font-size: 1rem; color: rgba(245,240,232,0.75); max-width: 460px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+.hero-actions { display: flex; gap: 1.5rem; align-items: center; }
+.btn-primary { background: var(--wine); color: var(--cream); padding: 0.9rem 2.2rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: background 0.25s; font-family: 'Jost', sans-serif; }
+.btn-primary:hover { background: var(--wine-mid); }
+.btn-ghost { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; border-bottom: 0.5px solid rgba(245,240,232,0.3); padding-bottom: 2px; transition: all 0.2s; }
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+.hero-scroll { position: absolute; bottom: 2rem; right: 3rem; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.hero-scroll span { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(245,240,232,0.4); writing-mode: vertical-rl; }
+.hero-scroll-line { width: 0.5px; height: 50px; background: linear-gradient(to bottom, rgba(245,240,232,0.4), transparent); }
+
+/* FRISE CHAMOIS */
+.frise {
+  background: var(--wine); padding: 1.5rem 0; overflow: hidden;
+  display: flex; align-items: center;
+}
+.frise img { height: 55px; width: auto; opacity: 0.9; display: block; }
+.frise-inner { display: flex; gap: 0; animation: slideFrise 20s linear infinite; white-space: nowrap; }
+.frise-inner img { height: 55px; }
+@keyframes slideFrise { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* BANDE VALEURS */
+.band { background: var(--wine); padding: 0; }
+.band-icons-img { width: 100%; display: block; }
+
+/* HISTOIRE */
+.histoire { display: grid; grid-template-columns: 1fr 1fr; min-height: 85vh; }
+.histoire-image { position: relative; overflow: hidden; min-height: 500px; }
+.histoire-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
+.histoire-image::after { content: ''; position: absolute; inset: 0; background: rgba(26,20,16,0.15); }
+.histoire-content { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--parchment); }
+.section-eyebrow { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: block; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.15; color: var(--dark); margin-bottom: 1.5rem; font-weight: 400; }
+.section-title em { font-style: italic; color: var(--wine); }
+.section-text { font-size: 0.95rem; color: var(--muted); line-height: 1.9; margin-bottom: 1rem; max-width: 460px; }
+.histoire-quote { margin-top: 2rem; padding-left: 1.5rem; border-left: 2px solid var(--gold); }
+.histoire-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--wine); line-height: 1.7; }
+.histoire-quote cite { display: block; margin-top: 0.5rem; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+
+/* VINS */
+.vins { padding: 6rem 3rem; background: var(--cream); }
+.vins-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3.5rem; }
+.vins-header a { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 0.5px solid var(--border); padding-bottom: 2px; transition: border-color 0.2s; }
+.vins-header a:hover { border-color: var(--gold); }
+.vins-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.vin-card { background: var(--parchment); display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 0.5px solid transparent; overflow: hidden; }
+.vin-card:hover { transform: translateY(-6px); border-color: var(--border); box-shadow: 0 20px 40px rgba(92,26,26,0.1); }
+.vin-card-img { width: 100%; height: 320px; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+.vin-card:hover .vin-card-img { transform: scale(1.03); }
+.vin-card-body { padding: 1.5rem 1.25rem 1.5rem; width: 100%; }
+.vin-badge { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--wine); background: rgba(92,26,26,0.07); padding: 0.2rem 0.6rem; border-radius: 1px; display: inline-block; margin-bottom: 0.75rem; }
+.vin-appellation { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+.vin-nom { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; font-weight: 400; }
+.vin-notes { font-size: 0.8rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
+.vin-footer { display: flex; align-items: center; justify-content: space-between; width: 100%; padding-top: 1rem; border-top: 0.5px solid var(--border); }
+.vin-price { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--wine); font-style: italic; }
+.vin-btn { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--wine); border: 0.5px solid rgba(92,26,26,0.35); padding: 0.45rem 0.9rem; text-decoration: none; transition: all 0.2s; background: transparent; cursor: pointer; font-family: 'Jost', sans-serif; }
+.vin-btn:hover { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+
+/* GALERIE */
+.galerie { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 280px 280px; gap: 0; }
+.galerie-item { overflow: hidden; position: relative; }
+.galerie-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+.galerie-item:hover img { transform: scale(1.05); }
+.galerie-item.large { grid-column: span 2; }
+
+/* VALEURS */
+.valeurs { background: var(--dark); padding: 5rem 3rem; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+.valeur-item { padding: 3rem; border-right: 0.5px solid rgba(245,240,232,0.07); display: flex; flex-direction: column; gap: 1rem; }
+.valeur-item:last-child { border-right: none; }
+.valeur-number { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); opacity: 0.35; font-style: italic; line-height: 1; }
+.valeur-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--cream); font-weight: 400; }
+.valeur-text { font-size: 0.88rem; color: rgba(245,240,232,0.45); line-height: 1.8; }
+
+/* CONTACT */
+.contact { padding: 5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; background: var(--parchment); }
+.contact-detail { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
+.contact-detail:first-of-type { border-top: 0.5px solid var(--border); margin-top: 2rem; }
+.contact-detail-icon { width: 44px; height: 44px; flex-shrink: 0; }
+.contact-detail-icon img { width: 100%; height: 100%; object-fit: contain; }
+.contact-detail-text p:first-child { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem; }
+.contact-detail-text p:last-child, .contact-detail-text a { font-size: 0.95rem; color: var(--text); text-decoration: none; }
+.contact-detail-text a { color: var(--wine); }
+.contact-form-area { background: var(--cream); padding: 2.5rem; border: 0.5px solid var(--border); }
+.contact-form-area h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--dark); font-weight: 400; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.form-group input, .form-group textarea, .form-group select { background: var(--parchment); border: 0.5px solid var(--border); padding: 0.75rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--text); outline: none; width: 100%; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+.form-group textarea { resize: none; height: 90px; }
+.form-submit { width: 100%; background: var(--wine); color: var(--cream); border: none; padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+.form-submit:hover { background: var(--wine-mid); }
+
+/* FOOTER */
+footer { background: #110B08; color: rgba(245,240,232,0.45); padding: 2.5rem 3rem; }
+.footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid rgba(245,240,232,0.08); }
+.footer-logo { display: flex; align-items: center; gap: 0.75rem; }
+.footer-logo img { height: 36px; filter: brightness(0) invert(1); opacity: 0.6; }
+.footer-logo-text { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: rgba(245,240,232,0.7); font-style: italic; }
+.footer-social a { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: rgba(245,240,232,0.5); font-size: 0.72rem; letter-spacing: 0.12em; transition: color 0.2s; }
+.footer-social a:hover { color: var(--gold); }
+.footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+.footer-text { font-size: 0.68rem; letter-spacing: 0.06em; }
+.footer-mention { font-size: 0.65rem; color: rgba(245,240,232,0.25); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 0.9rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero-content { padding: 0 1.5rem; }
+  .hero-title { font-size: 2.4rem; }
+  .histoire { grid-template-columns: 1fr; }
+  .histoire-image { min-height: 300px; }
+  .histoire-content { padding: 3rem 1.5rem; }
+  .vins { padding: 4rem 1.5rem; }
+  .vins-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .galerie { grid-template-columns: 1fr 1fr; }
+  .galerie-item.large { grid-column: span 1; }
+  .valeurs { grid-template-columns: 1fr; }
+  .valeur-item { border-right: none; border-bottom: 0.5px solid rgba(245,240,232,0.07); padding: 2rem 1.5rem; }
+  .contact { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-top, .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="Cave Cleusix logo">
+    <div class="nav-logo-text">Cave <span>Cleusix</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#histoire">Notre histoire</a></li>
+    <li><a href="#vins">Nos vins</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:0792991184" class="nav-cta">079 299 11 84</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Némiaz · Chamoson · Valais</span>
+    <h1 class="hero-title">Vins de caractère,<br><em>terroir & passion.</em></h1>
+    <p class="hero-subtitle">Jean-Michel et Victor Cleusix cultivent et vinifient avec exigence depuis les vignes de Némiaz, au cœur du Valais.</p>
+    <div class="hero-actions">
+      <a href="#vins" class="btn-primary">Découvrir nos vins</a>
+      <a href="#histoire" class="btn-ghost">Notre histoire →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- FRISE CHAMOIS -->
+<div class="frise">
+  <div class="frise-inner">
+    <img src="images/frise-chamois.png" alt="">
+    <img src="images/frise-chamois.png" alt="">
+    <img src="images/frise-chamois.png" alt="">
+    <img src="images/frise-chamois.png" alt="">
+  </div>
+</div>
+
+<!-- BANDE ICÔNES -->
+<div style="background: var(--wine); padding: 2.5rem 3rem;">
+  <img src="images/band-icons.png" alt="Vignes en Valais · Vente directe · Domaine familial · Respect du terroir" style="width:100%; max-width:900px; display:block; margin:0 auto;">
+</div>
+
+<!-- HISTOIRE -->
+<section class="histoire" id="histoire">
+  <div class="histoire-image">
+    <img src="images/vicetpap.jpeg" alt="Jean-Michel et Victor Cleusix">
+  </div>
+  <div class="histoire-content">
+    <span class="section-eyebrow">Notre histoire</span>
+    <h2 class="section-title">Un savoir-faire<br><em>transmis de<br>père en fils</em></h2>
+    <p class="section-text">Jean-Michel Cleusix, passionné de viticulture depuis toujours, a transmis son savoir-faire et son amour de la terre à son fils Victor.</p>
+    <p class="section-text">Ensemble, ils cultivent et vinifient avec exigence et respect du terroir. Chaque vendange, chaque barrique est le fruit de cette complicité entre générations, où la tradition se marie à la jeunesse et à l'innovation.</p>
+    <div class="histoire-quote">
+      <p>« C'est ce lien unique, entre père et fils, qui donne à nos vins leur authenticité et leur âme. »</p>
+      <cite>— Jean-Michel &amp; Victor Cleusix</cite>
+    </div>
+  </div>
+</section>
+
+<!-- VINS -->
+<section class="vins" id="vins">
+  <div class="vins-header">
+    <div>
+      <span class="section-eyebrow">La sélection · Production limitée</span>
+      <h2 class="section-title" style="margin-bottom:0;">Nos <em>4 cuvées</em></h2>
+    </div>
+    <a href="https://www.cavecleusix.ch/boutique/" target="_blank">Commander en ligne →</a>
+  </div>
+  <div class="vins-grid">
+
+    <div class="vin-card">
+      <img src="images/pinotnoir.png" alt="Pinot Noir Vieilles Vignes" class="vin-card-img">
+      <div class="vin-card-body">
+        <span class="vin-badge">Vieilles Vignes</span>
+        <div class="vin-appellation">Valais · Vin de pays</div>
+        <div class="vin-nom">Pinot Noir</div>
+        <div class="vin-notes">Issu de vieilles vignes, ce Pinot Noir dévoile structure, élégance et une belle profondeur de fruit. 13,5% vol.</div>
+        <div class="vin-footer">
+          <span class="vin-price">CHF 15.–</span>
+          <a href="https://www.cavecleusix.ch/boutique/?add-to-cart=150" class="vin-btn" target="_blank">Commander</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vin-card">
+      <img src="images/HumagneRouge.png" alt="Humagne Rouge" class="vin-card-img">
+      <div class="vin-card-body">
+        <span class="vin-badge">Cépage Valaisan</span>
+        <div class="vin-appellation">Valais · Vin de pays</div>
+        <div class="vin-nom">Humagne Rouge</div>
+        <div class="vin-notes">Cépage emblématique du Valais aux arômes de fruits rouges sauvages, d'épices et de sous-bois. 13,5% vol.</div>
+        <div class="vin-footer">
+          <span class="vin-price">CHF 15.–</span>
+          <a href="https://www.cavecleusix.ch/boutique/?add-to-cart=151" class="vin-btn" target="_blank">Commander</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vin-card">
+      <img src="images/Sangiovese.png" alt="Sangiovese" class="vin-card-img">
+      <div class="vin-card-body">
+        <span class="vin-badge">Vin Rouge</span>
+        <div class="vin-appellation">Valais · Vin de pays</div>
+        <div class="vin-nom">Sangiovese</div>
+        <div class="vin-notes">Cépage toscan épanoui sous le soleil du Valais. Tanins soyeux, belle longueur et caractère méditerranéen. 13,5% vol.</div>
+        <div class="vin-footer">
+          <span class="vin-price">CHF 20.–</span>
+          <a href="https://www.cavecleusix.ch/boutique/?add-to-cart=152" class="vin-btn" target="_blank">Commander</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vin-card">
+      <img src="images/Savagnin.png" alt="Savagnin de Leytron" class="vin-card-img">
+      <div class="vin-card-body">
+        <span class="vin-badge">Vin Blanc</span>
+        <div class="vin-appellation">Leytron · Vin de pays</div>
+        <div class="vin-nom">Savagnin de Leytron</div>
+        <div class="vin-notes">Vin blanc sec et minéral, aux arômes floraux et d'agrumes. La fraîcheur alpestre du Valais dans chaque gorgée. 13,4% vol.</div>
+        <div class="vin-footer">
+          <span class="vin-price">CHF 15.–</span>
+          <a href="https://www.cavecleusix.ch/boutique/" class="vin-btn" target="_blank">Commander</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIE -->
+<div class="galerie">
+  <div class="galerie-item large">
+    <img src="images/paysage4vueleytron.png" alt="Vue sur Leytron">
+  </div>
+  <div class="galerie-item">
+    <img src="images/paysage1caissespleines.png" alt="Vendanges">
+  </div>
+  <div class="galerie-item">
+    <img src="images/paysage6tonneux.png" alt="Cave et tonneaux">
+  </div>
+  <div class="galerie-item">
+    <img src="images/paysage8vendages.png" alt="Les vendanges">
+  </div>
+  <div class="galerie-item">
+    <img src="images/paysage7nera.png" alt="La cave">
+  </div>
+</div>
+
+<!-- VALEURS -->
+<section class="valeurs">
+  <div class="valeur-item">
+    <div class="valeur-number">01</div>
+    <div class="valeur-title">Terroir Valaisan</div>
+    <p class="valeur-text">Des vignes ancrées dans les sols et le microclimat exceptionnel du Valais, entre Alpes et soleil généreux.</p>
+  </div>
+  <div class="valeur-item">
+    <div class="valeur-number">02</div>
+    <div class="valeur-title">Vinification Artisanale</div>
+    <p class="valeur-text">Chaque étape, de la vendange à la mise en bouteille, est réalisée avec soin et passion par la famille Cleusix.</p>
+  </div>
+  <div class="valeur-item">
+    <div class="valeur-number">03</div>
+    <div class="valeur-title">Vente à la Cave</div>
+    <p class="valeur-text">Venez nous rencontrer directement à Némiaz pour découvrir nos vins et partager notre passion du terroir.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <span class="section-eyebrow">Nous trouver</span>
+    <h2 class="section-title">Venez déguster<br><em>à la cave</em></h2>
+    <p class="section-text">Nous accueillons volontiers les amateurs de vin à la cave. Contactez-nous pour prendre rendez-vous ou passer commande.</p>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="21.5" stroke="#5C1A1A" stroke-width="1"/>
+          <path d="M28.5 25.5c-.8-.8-2-.8-2.8 0l-1.2 1.2c-2-.9-3.8-2.7-4.7-4.7l1.2-1.2c.8-.8.8-2 0-2.8l-2-2c-.8-.8-2-.8-2.8 0l-1 1c-1 1-1.3 2.4-.7 3.6 1.6 3.4 4.4 6.2 7.8 7.8 1.2.6 2.6.3 3.6-.7l1-1c.8-.8.8-2 0-2.8l-2.4-2.4z" fill="#5C1A1A"/>
+        </svg>
+      </div>
+      <div class="contact-detail-text">
+        <p>Téléphone</p>
+        <a href="tel:0792991184">079 299 11 84</a>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="21.5" stroke="#5C1A1A" stroke-width="1"/>
+          <path d="M22 13c-4.4 0-8 3.6-8 8 0 5.4 8 13 8 13s8-7.6 8-13c0-4.4-3.6-8-8-8zm0 10.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z" fill="#5C1A1A"/>
+        </svg>
+      </div>
+      <div class="contact-detail-text">
+        <p>Adresse</p>
+        <p>Route Grange à Léonard 9A<br>1955 Némiaz</p>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="21.5" stroke="#5C1A1A" stroke-width="1"/>
+          <path d="M22 13a9 9 0 100 18 9 9 0 000-18zm7 8h-3.1c-.1-1.7-.5-3.2-1.1-4.4A7 7 0 0129 21zm-7-7c.9 1.1 1.5 2.9 1.6 5H20.4c.1-2.1.7-3.9 1.6-5zm-4.8 2.6c-.6 1.2-1 2.7-1.1 4.4H13a7 7 0 014.2-4.4zM13 23h3.1c.1 1.7.5 3.2 1.1 4.4A7 7 0 0113 23zm9 7c-.9-1.1-1.5-2.9-1.6-5h3.2c-.1 2.1-.7 3.9-1.6 5zm4.8-2.6c.6-1.2 1-2.7 1.1-4.4H31a7 7 0 01-4.2 4.4z" fill="#5C1A1A"/>
+        </svg>
+      </div>
+      <div class="contact-detail-text">
+        <p>Email</p>
+        <a href="mailto:contact@cavecleusix.ch">contact@cavecleusix.ch</a>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="21.5" stroke="#5C1A1A" stroke-width="1"/>
+          <path d="M22 13c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6h-2.6c-.3-1.2-.7-2.2-1.3-3.1 1.6.5 2.9 1.6 3.9 3.1zM22 15.1c.8.9 1.4 2 1.8 3.3h-3.6c.4-1.3 1-2.4 1.8-3.3zM15.2 23c-.1-.6-.2-1-.2-1.6s.1-1 .2-1.4H18c-.1.4-.1.9-.1 1.4s0 1 .1 1.4h-2.8zM17.1 25h2.6c.3 1.2.7 2.2 1.3 3.1-1.6-.5-3-1.6-3.9-3.1zm2.6-6h-2.6c1-1.5 2.3-2.6 3.9-3.1-.6.9-1 1.9-1.3 3.1zM22 28.9c-.8-.9-1.4-2-1.8-3.3h3.6c-.4 1.3-1 2.4-1.8 3.3zm2.2-5.3h-4.4c-.1-.4-.2-.9-.2-1.4s.1-1 .2-1.4h4.4c.1.4.2.9.2 1.4s-.1 1-.2 1.4zm.3 4.5c.6-.9 1-1.9 1.3-3.1h2.6c-1 1.5-2.3 2.6-3.9 3.1zm1.7-4.5c.1-.4.1-.9.1-1.4s0-1-.1-1.4H29c.1.4.2.9.2 1.4s-.1 1-.2 1.4h-2.8z" fill="#5C1A1A"/>
+        </svg>
+      </div>
+      <div class="contact-detail-text">
+        <p>Boutique en ligne</p>
+        <a href="https://www.cavecleusix.ch/boutique/" target="_blank">cavecleusix.ch/boutique</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-area">
+    <h3>Envoyer un message</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prénom</label>
+        <input type="text" placeholder="Jean">
+      </div>
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" placeholder="Dupont">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="jean.dupont@email.com">
+    </div>
+    <div class="form-group">
+      <label>Sujet</label>
+      <select>
+        <option>Commande de vins</option>
+        <option>Visite à la cave</option>
+        <option>Dégustation</option>
+        <option>Autre demande</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Votre message..."></textarea>
+    </div>
+    <button class="form-submit">Envoyer le message</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="Cave Cleusix">
+      <div class="footer-logo-text">Cave Cleusix</div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/cavecleusix" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @cavecleusix
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-text">© 2026 Cave Cleusix · Route Grange à Léonard 9A · 1955 Némiaz · Valais</div>
+    <div class="footer-mention">La vente d'alcool est interdite aux mineurs de moins de 18 ans</div>
+  </div>
+</footer>
+
+</body>
+</html>
