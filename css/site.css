@@ -207,17 +207,18 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .around {
   display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin: 0;
-  width: min(100%, 280px);
+  width: min(100%, 340px);
   align-self: center;
 }
 .around a {
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--wine);
+  text-align: center;
 }
 .around a:hover { color: var(--gold); }
 
