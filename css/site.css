@@ -116,19 +116,26 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   cursor: pointer;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: minmax(300px, 0.92fr) 1.15fr;
-  min-height: 100svh;
-  background: var(--cream);
+.hero-photo {
+  margin: var(--header) 0 0;
+  height: clamp(380px, 68vh, 780px);
+  overflow: hidden;
+  background: var(--parchment);
 }
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: calc(var(--header) + 2.5rem) clamp(1.4rem, 4vw, 4.2rem) 3rem;
-  background: var(--cream);
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% 45%;
 }
+.home-wines { padding-top: 2.6rem; }
+.home-story h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.7rem, 4.7vw, 4.5rem);
+  line-height: 1.08;
+  color: var(--dark);
+}
+.home-story h1 em { font-style: italic; color: var(--wine); }
 .eyebrow {
   margin: 0 0 1.1rem;
   font-size: 0.72rem;
@@ -136,20 +143,12 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   text-transform: uppercase;
   color: var(--gold);
 }
-.hero h1 {
-  margin: 0 0 1.25rem;
-  font-size: clamp(2.7rem, 4.7vw, 4.5rem);
-  line-height: 1.08;
-  color: var(--dark);
-}
-.hero h1 em { font-style: italic; color: var(--wine); }
 .lede {
   margin: 0 0 1.8rem;
   max-width: 36rem;
   color: var(--muted);
   font-size: 1.05rem;
 }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -175,52 +174,6 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   padding-bottom: 0.15rem;
 }
 .text-link:hover { color: var(--wine); border-color: var(--wine); }
-
-.hero-visual {
-  display: grid;
-  grid-template-columns: 1.15fr 0.9fr;
-  min-height: 100svh;
-  background: var(--parchment);
-}
-.hero-vine-wrap { position: relative; min-height: 100%; }
-.hero-vine-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 35% 45%;
-  position: absolute;
-  inset: 0;
-}
-.bottle-stage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.85rem;
-  padding: calc(var(--header) + 1.2rem) 1rem 1.6rem;
-}
-.bottle-stage img {
-  width: min(100%, 280px);
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-}
-.around {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin: 0;
-  width: min(100%, 340px);
-  align-self: center;
-}
-.around a {
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--wine);
-  text-align: center;
-}
-.around a:hover { color: var(--gold); }
 
 .band {
   background: var(--wine);
@@ -365,6 +318,8 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   color: var(--gold);
 }
 .vin-card h3 { margin: 0.15rem 0; font-size: 1.25rem; color: var(--dark); }
+.vin-card h3 a,
+.vin-card .photo { color: inherit; text-decoration: none; }
 .vin-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 .price {
   margin-top: auto;
@@ -575,10 +530,6 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 :focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
 
 @media (max-width: 1100px) {
-  .hero { grid-template-columns: 1fr; min-height: 0; }
-  .hero-visual { min-height: 0; }
-  .hero-vine-wrap { min-height: 46vh; }
-  .hero-vine-wrap img { position: relative; height: 46vh; }
   .vin-grid { grid-template-columns: 1fr 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
   .gallery .wide { grid-row: auto; grid-column: span 2; height: 220px; }
@@ -604,10 +555,9 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   .valeur { border-right: none; border-bottom: 1px solid rgba(245, 240, 232, 0.08); }
   .gallery-page { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .hero-visual { grid-template-columns: 1fr; }
-  .bottle-stage { padding-top: 1.2rem; }
 }
 @media (max-width: 640px) {
+  .hero-photo { height: 52vh; min-height: 280px; }
   .vin-grid, .gallery, .gallery-page { grid-template-columns: 1fr; }
   .gallery .wide { grid-column: auto; height: auto; }
   .gallery img, .gallery-page img { height: 220px; }
