@@ -31,56 +31,11 @@
   <main id="contenu">
 
     <!-- Photo de vigne : média public « raisinpageaccueil » de cavecleusix.ch. -->
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Valais — Vins de terroir</p>
-        <h1>L'art du vin,<br><em>transmis de père en fils.</em></h1>
-        <p class="lede">Jean-Michel et Victor Cleusix cultivent et vinifient avec exigence et respect du terroir, dans les vignes du Valais.</p>
-        <div class="hero-actions">
-          <a class="btn" href="vins.html">Découvrir nos vins</a>
-          <a class="text-link" href="histoire.html">Notre histoire</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-vine-wrap">
-          <img src="images/raisin-accueil.jpg" alt="Feuilles de vigne et grappes dans les vignes">
-        </div>
-        <div class="bottle-stage">
-          <p class="around">
-            <a href="vins/sauvignon-blanc.html">Sauvignon Blanc</a>
-            <a href="vins/cuvee-victor.html">Cuvée Victor</a>
-          </p>
-          <img src="images/SauvignonBlanc.png" alt="Bouteille de Sauvignon Blanc, Cave Cleusix">
-          <p class="around">
-            <a href="vins/sangiovese.html">Sangiovese</a>
-            <a href="vins/savagnin.html">Savagnin</a>
-          </p>
-        </div>
-      </div>
-    </section>
+    <figure class="hero-photo">
+      <img src="images/raisin-accueil.jpg" alt="Feuilles de vigne et grappes dans les vignes">
+    </figure>
 
-    <section class="band" aria-label="Le domaine">
-      <img src="images/band-icons.png" alt="Vignes en Valais. Vente directe à la cave. Domaine familial. Respect du terroir.">
-    </section>
-
-    <section class="split" aria-labelledby="titre-histoire">
-      <img src="images/vicetpap.jpeg" alt="Victor et Jean-Michel Cleusix à la cave">
-      <div class="split-copy">
-        <p class="eyebrow">Notre histoire</p>
-        <h2 class="section-title" id="titre-histoire">Un savoir-faire<br><em>transmis de père en fils</em></h2>
-        <div class="prose">
-          <p>Jean-Michel Cleusix, passionné de viticulture depuis toujours, a transmis son savoir-faire et son amour de la terre à son fils Victor.</p>
-          <p>Ensemble, ils cultivent et vinifient avec exigence et respect du terroir. Chaque vendange, chaque barrique est le fruit de cette complicité entre générations.</p>
-        </div>
-        <blockquote class="quote">
-          <p>« C’est ce lien unique, entre père et fils, qui donne à nos vins leur authenticité et leur âme. »</p>
-          <cite>Jean-Michel &amp; Victor Cleusix</cite>
-        </blockquote>
-        <p style="margin-top:1.4rem"><a class="text-link" href="histoire.html">Lire la suite</a></p>
-      </div>
-    </section>
-
-    <section class="section" id="selection" aria-labelledby="titre-vins">
+    <section class="section home-wines" id="selection" aria-labelledby="titre-vins">
       <div class="wrap-wide">
         <div class="section-head">
           <div>
@@ -90,47 +45,81 @@
           <a class="text-link" href="vins.html">Voir les cuvées</a>
         </div>
         <div class="vin-grid">
-          <a class="vin-card" href="vins/sauvignon-blanc.html">
-            <div class="photo"><img src="images/SauvignonBlanc.png" alt="Bouteille de Sauvignon Blanc"></div>
+          <article class="vin-card">
+            <a class="photo" href="vins/sauvignon-blanc.html"><img src="images/SauvignonBlanc.png" alt="Bouteille de Sauvignon Blanc"></a>
             <div class="body">
               <span class="badge">Vin blanc</span>
               <span class="appellation">Vin de pays · Leytron</span>
-              <h3>Sauvignon Blanc</h3>
+              <h3><a href="vins/sauvignon-blanc.html">Sauvignon Blanc</a></h3>
               <p>Sauvignon Blanc de Leytron.</p>
               <p class="price">CHF 18.–</p>
+              <div id="product-component-sauvignon-home" class="shopify-button-mount" data-shopify-product="16660517388678" data-button-bg="#03530b" data-button-hover="#034b0a"></div>
             </div>
-          </a>
-          <a class="vin-card" href="vins/cuvee-victor.html">
-            <div class="photo"><img src="images/CuvéeVictor.png" alt="Bouteille de Cuvée Victor"></div>
+          </article>
+          <article class="vin-card">
+            <a class="photo" href="vins/cuvee-victor.html"><img src="images/CuvéeVictor.png" alt="Bouteille de Cuvée Victor"></a>
             <div class="body">
               <span class="badge">Vin rouge</span>
               <span class="appellation">Némiaz · Chamoson</span>
-              <h3>Cuvée Victor</h3>
+              <h3><a href="vins/cuvee-victor.html">Cuvée Victor</a></h3>
               <p>L’étiquette indique Humagne Rouge.</p>
               <p class="price">CHF 20.–</p>
+              <div id="product-component-cuvee-victor-home" class="shopify-button-mount" data-shopify-product="16660529709446" data-button-bg="#8c1212" data-button-hover="#ee1f1f"></div>
             </div>
-          </a>
-          <a class="vin-card" href="vins/sangiovese.html">
-            <div class="photo"><img src="images/Sangiovese.png" alt="Bouteille de Sangiovese"></div>
+          </article>
+          <article class="vin-card">
+            <a class="photo" href="vins/sangiovese.html"><img src="images/Sangiovese.png" alt="Bouteille de Sangiovese"></a>
             <div class="body">
               <span class="badge">Vin rouge</span>
               <span class="appellation">Vin de pays · Valais</span>
-              <h3>Sangiovese</h3>
+              <h3><a href="vins/sangiovese.html">Sangiovese</a></h3>
               <p>Cépage italien épanoui sous le soleil du Valais, aux tanins soyeux et à la belle longueur.</p>
               <p class="price">CHF 20.–</p>
+              <div id="product-component-sangiovese-home" class="shopify-button-mount" data-shopify-product="16660526170502" data-button-bg="#8c1212" data-button-hover="#ee1f1f"></div>
             </div>
-          </a>
-          <a class="vin-card" href="vins/savagnin.html">
-            <div class="photo"><img src="images/Savagnin.png" alt="Bouteille de Savagnin"></div>
+          </article>
+          <article class="vin-card">
+            <a class="photo" href="vins/savagnin.html"><img src="images/Savagnin.png" alt="Bouteille de Savagnin"></a>
             <div class="body">
               <span class="badge">Vin blanc</span>
               <span class="appellation">Vin de pays · Leytron</span>
-              <h3>Savagnin</h3>
+              <h3><a href="vins/savagnin.html">Savagnin</a></h3>
               <p>Savagnin de Leytron.</p>
               <p class="price">CHF 15.–</p>
+              <div id="product-component-savagnin-home" class="shopify-button-mount" data-shopify-product="16660500152710" data-button-bg="#03530b" data-button-hover="#034b0a"></div>
             </div>
-          </a>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section home-story" aria-labelledby="titre-histoire">
+      <div class="wrap">
+        <p class="eyebrow">Valais — Vins de terroir</p>
+        <h1 id="titre-histoire">L'art du vin,<br><em>transmis de père en fils.</em></h1>
+        <p class="lede">Jean-Michel et Victor Cleusix cultivent et vinifient avec exigence et respect du terroir, dans les vignes du Valais.</p>
+        <p><a class="text-link" href="histoire.html">Notre histoire</a></p>
+      </div>
+    </section>
+
+    <section class="band" aria-label="Le domaine">
+      <img src="images/band-icons.png" alt="Vignes en Valais. Vente directe à la cave. Domaine familial. Respect du terroir.">
+    </section>
+
+    <section class="split" aria-labelledby="titre-savoir">
+      <img src="images/vicetpap.jpeg" alt="Victor et Jean-Michel Cleusix à la cave">
+      <div class="split-copy">
+        <p class="eyebrow">Notre histoire</p>
+        <h2 class="section-title" id="titre-savoir">Un savoir-faire<br><em>transmis de père en fils</em></h2>
+        <div class="prose">
+          <p>Jean-Michel Cleusix, passionné de viticulture depuis toujours, a transmis son savoir-faire et son amour de la terre à son fils Victor.</p>
+          <p>Ensemble, ils cultivent et vinifient avec exigence et respect du terroir. Chaque vendange, chaque barrique est le fruit de cette complicité entre générations.</p>
+        </div>
+        <blockquote class="quote">
+          <p>« C’est ce lien unique, entre père et fils, qui donne à nos vins leur authenticité et leur âme. »</p>
+          <cite>Jean-Michel &amp; Victor Cleusix</cite>
+        </blockquote>
+        <p style="margin-top:1.4rem"><a class="text-link" href="histoire.html">Lire la suite</a></p>
       </div>
     </section>
 
@@ -198,5 +187,6 @@
     </div>
   </footer>
   <script src="js/site.js"></script>
+  <script src="js/shopify-buy.js"></script>
 </body>
 </html>

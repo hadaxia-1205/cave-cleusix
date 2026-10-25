@@ -14,7 +14,7 @@ Puis ouvrir [http://127.0.0.1:8080](http://127.0.0.1:8080).
 
 Pages :
 
-- `/` — accueil
+- `/` — accueil : photo de vigne, puis les quatre vins, puis « L'art du vin, transmis de père en fils. »
 - `/histoire.html` — notre histoire
 - `/vins.html` — les quatre cuvées
 - `/vins/sauvignon-blanc.html`
