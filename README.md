@@ -25,4 +25,4 @@ Pages :
 
 ## Vins
 
-Sauvignon Blanc (CHF 18.–), Cuvée Victor (CHF 20.–), Sangiovese (CHF 20.–), Savagnin (CHF 15.–). Chaque fiche a un emplacement vide `data-shopify-buy` pour un futur bouton Shopify. Il n’y a pas de paiement sur ce site.
+Sauvignon Blanc (CHF 18.–), Cuvée Victor (CHF 20.–), Sangiovese (CHF 20.–), Savagnin (CHF 15.–). Chaque fiche et la liste des vins affichent un bouton Shopify « Ajouter au panier ». Le paiement se fait dans le panier Shopify.

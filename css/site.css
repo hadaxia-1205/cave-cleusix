@@ -471,20 +471,14 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 }
 .wine-copy h2 { margin: 0.4rem 0 0.6rem; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--dark); }
 .wine-copy .lead { color: var(--text); }
-.buy-note { margin: 1rem 0 0.4rem; font-size: 0.82rem; letter-spacing: 0.04em; color: var(--muted); }
-.shopify-buy:empty {
-  min-height: 52px;
-  border: 1px dashed rgba(92, 26, 26, 0.45);
-  display: grid;
-  place-items: center;
-  background: rgba(255, 255, 255, 0.28);
+.shopify-button-mount {
+  width: 100%;
+  max-width: none !important;
+  margin-top: 0.85rem;
 }
-.shopify-buy:empty::before {
-  content: "Emplacement du bouton Shopify";
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--wine);
+.shopify-button-mount iframe {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 .price-source { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--muted); }
 
