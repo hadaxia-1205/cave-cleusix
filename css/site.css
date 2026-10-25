@@ -330,6 +330,9 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 }
 .price.is-empty { color: var(--muted); font-size: 1rem; }
 
+.split + .gallery {
+  margin-top: 1.5rem;
+}
 .gallery {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
