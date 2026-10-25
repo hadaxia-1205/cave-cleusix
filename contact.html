@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Cave Cleusix</title>
+  <meta name="description" content="Téléphone 079 299 11 84. Cave Cleusix, Némiaz, Chamoson, Valais.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;family=Jost:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img src="images/logo.png" alt="">
+      <span class="logo-name">Cave <em>Cleusix</em></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu</button>
+    <nav class="site-nav" id="navigation" aria-label="Navigation">
+      <ul>
+          <li><a href="histoire.html">Notre histoire</a></li>
+          <li><a href="vins.html">Nos vins</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-phone" href="tel:+41792991184">079 299 11 84</a>
+  </header>
+  <main id="contenu">
+
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Nous trouver</p>
+        <h1>Venez déguster<br><em>à la cave</em></h1>
+      </div>
+    </header>
+    <section class="section" style="padding-top:0">
+      <div class="wrap contact-band">
+        <div>
+          <p class="lede">Nous accueillons volontiers les amateurs de vin à la cave. N’hésitez pas à nous contacter pour prendre rendez-vous.</p>
+          <div class="detail"><span>Téléphone</span><a href="tel:+41792991184">079 299 11 84</a></div>
+          <div class="detail"><span>Lieu</span><p style="margin:0">Némiaz, Chamoson<br>Valais, Suisse</p></div>
+          <div class="detail"><span>À la cave</span><p style="margin:0">Jean-Michel Cleusix, propriétaire-encaveur</p></div>
+          <p class="prose" style="margin-top:1.2rem">La vente en ligne n’est pas encore branchée. Les prix des trois vins déjà publiés restent ceux du site actuel. Pour commander ou visiter, appelez la cave.</p>
+        </div>
+        <form class="form" action="#" method="post" onsubmit="return false;">
+          <h2>Envoyer un message</h2>
+          <div class="form-row">
+            <div class="field">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" name="prenom" type="text" autocomplete="given-name" placeholder="Jean">
+            </div>
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input id="nom" name="nom" type="text" autocomplete="family-name" placeholder="Dupont">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jean.dupont@email.com">
+          </div>
+          <div class="field">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet">
+              <option>Commande de vins</option>
+              <option>Visite à la cave</option>
+              <option>Dégustation</option>
+              <option>Autre demande</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message..."></textarea>
+          </div>
+          <button class="btn" type="button" data-contact-send>Envoyer le message</button>
+          <p class="form-status" data-contact-status role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+  <div class="frise" role="presentation"></div>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="">
+        <p class="footer-name">Cave Cleusix</p>
+      </div>
+      <p>Jean-Michel Cleusix, propriétaire-encaveur<br>Némiaz, Chamoson, Valais</p>
+      <p><a href="tel:+41792991184">079 299 11 84</a></p>
+      <ul class="footer-links">
+        <li><a href="histoire.html">Notre histoire</a></li>
+        <li><a href="vins.html">Nos vins</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Cave Cleusix · Valais, Suisse</p>
+      <p>Vente d'alcool interdite aux mineurs</p>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>
