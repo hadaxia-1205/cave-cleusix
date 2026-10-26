@@ -1,11 +1,55 @@
 (function () {
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
+  function closeNav() {
+    if (!toggle || !nav) return;
+    nav.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "Menu";
+  }
+
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.textContent = open ? "Fermer" : "Menu";
+    });
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeNav);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeNav();
+    });
+  }
+
+  var send = document.querySelector("[data-contact-send]");
+  if (send) {
+    send.addEventListener("click", function () {
+      var status = document.querySelector("[data-contact-status]");
+      var prenom = document.getElementById("prenom");
+      var nom = document.getElementById("nom");
+      var email = document.getElementById("email");
+      var sujet = document.getElementById("sujet");
+      var message = document.getElementById("message");
+      var name = [prenom && prenom.value, nom && nom.value].map(function (value) {
+        return (value || "").trim();
+      }).filter(Boolean).join(" ");
+      var body = (message && message.value || "").trim();
+      if (!name || !body) {
+        if (status) status.textContent = "Indiquez votre nom et votre message.";
+        if (!name && prenom) prenom.focus();
+        else if (message) message.focus();
+        return;
+      }
+      var lines = [
+        "Bonjour, je vous contacte depuis le site Cave Cleusix.",
+        "Nom : " + name
+      ];
+      if (email && email.value.trim()) lines.push("Email : " + email.value.trim());
+      if (sujet && sujet.value.trim()) lines.push("Sujet : " + sujet.value.trim());
+      lines.push(body);
+      window.open("https://wa.me/41793518623?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener,noreferrer");
+      if (status) status.textContent = "Votre message s’ouvre dans WhatsApp.";
     });
   }
 

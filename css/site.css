@@ -2,7 +2,12 @@
    Couleurs reprises du site en ligne (variables --cream, --wine, --gold). */
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  scroll-padding-top: calc(var(--header) + 0.75rem);
+  scroll-padding-bottom: calc(7.5rem + env(safe-area-inset-bottom));
+}
 body {
   margin: 0;
   font-family: "Jost", "Avenir Next", "Segoe UI", sans-serif;
@@ -46,7 +51,7 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .skip:focus { top: 0.6rem; }
 
 .site-header {
-  position: fixed;
+  position: sticky;
   top: 0; left: 0; right: 0;
   z-index: 100;
   min-height: var(--header);
@@ -66,6 +71,7 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   text-decoration: none;
   color: var(--dark);
   min-width: 0;
+  flex: 0 1 auto;
 }
 .logo img {
   height: 48px;
@@ -77,6 +83,9 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   font-size: 1.15rem;
   letter-spacing: 0.06em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 .logo-name em { font-style: italic; color: var(--wine); }
 .site-nav ul {
@@ -87,6 +96,9 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   padding: 0;
 }
 .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   text-decoration: none;
   font-size: 0.74rem;
   letter-spacing: 0.16em;
@@ -96,9 +108,14 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { color: var(--wine); }
 .nav-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 44px;
   text-decoration: none;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   color: var(--wine);
   border: 1px solid var(--wine);
   padding: 0.5rem 0.85rem;
@@ -107,17 +124,22 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .nav-phone:hover { background: var(--wine); color: var(--cream); }
 .nav-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
   background: transparent;
   border: 1px solid var(--border);
-  padding: 0.45rem 0.7rem;
-  letter-spacing: 0.14em;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem 0.85rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   cursor: pointer;
 }
 
 .hero-photo {
-  margin: var(--header) 0 0;
+  margin: 0;
   height: clamp(380px, 68vh, 780px);
   overflow: hidden;
   background: var(--parchment);
@@ -165,13 +187,16 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 }
 .btn:hover { background: var(--wine-mid); }
 .text-link {
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 0.15rem;
+  line-height: 1.3;
+  padding: 14px 6px 8px;
+  margin: -14px -6px -8px;
 }
 .text-link:hover { color: var(--wine); border-color: var(--wine); }
 
@@ -264,6 +289,7 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  min-width: 0;
 }
 .vin-card {
   display: flex;
@@ -272,6 +298,7 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   text-decoration: none;
   color: var(--text);
   min-height: 100%;
+  min-width: 0;
 }
 .vin-card:hover { outline: 1px solid var(--gold); }
 .vin-card .photo {
@@ -308,22 +335,23 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .vin-card .body { padding: 1.1rem 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
 .badge {
   display: inline-block;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--wine);
   background: rgba(92, 26, 26, 0.07);
-  padding: 0.2rem 0.45rem;
+  padding: 0.28rem 0.5rem;
 }
 .appellation {
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
 }
-.vin-card h3 { margin: 0.15rem 0; font-size: 1.25rem; color: var(--dark); }
+.vin-card h3 { margin: 0.15rem 0; font-size: 1.35rem; color: var(--dark); }
 .vin-card h3 a,
 .vin-card .photo { color: inherit; text-decoration: none; }
+.vin-card h3 a { display: inline-flex; align-items: center; min-height: 44px; }
 .vin-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 .vin-card p.price { margin-top: auto; }
 .price {
@@ -385,9 +413,9 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   text-transform: uppercase;
   color: var(--gold);
 }
-.detail a { color: var(--wine); }
+.detail a { color: var(--wine); display: inline-flex; align-items: center; min-height: 44px; }
 
-.page-hero { padding: calc(var(--header) + 2.6rem) 0 1.2rem; }
+.page-hero { padding: 2.6rem 0 1.2rem; }
 .page-hero h1 {
   margin: 0;
   font-size: clamp(2.4rem, 5vw, 4rem);
@@ -436,8 +464,10 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .wine-copy .lead { color: var(--text); }
 .shopify-button-mount {
   width: 100%;
+  min-width: 0;
   max-width: none !important;
   margin-top: 0.85rem;
+  scroll-margin-bottom: 7.5rem;
 }
 .shopify-button-mount iframe {
   width: 100% !important;
@@ -458,15 +488,24 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   top: calc(var(--header) + 1rem);
 }
 .product-photo img { width: 100%; height: auto; max-height: 78vh; object-fit: contain; margin: 0 auto; }
-.crumbs { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.8rem; }
-.crumbs a { color: var(--wine); text-decoration: none; }
+.crumbs { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.4rem; }
+.crumbs a { color: var(--wine); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
 .product h1 { margin: 0.35rem 0 0.6rem; font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--dark); }
 .facts { margin: 1.2rem 0; padding: 0; }
 .facts div { display: grid; grid-template-columns: 9rem 1fr; gap: 0.5rem; padding: 0.45rem 0; border-top: 1px solid var(--border); }
 .facts dt { margin: 0; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .facts dd { margin: 0; }
-.siblings { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; padding: 0; margin: 0; list-style: none; }
-.siblings a { color: var(--wine); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.75rem; }
+.siblings { display: flex; flex-wrap: wrap; gap: 0.35rem 1.2rem; padding: 0; margin: 0; list-style: none; }
+.siblings a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--wine);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
 .siblings a:hover { color: var(--gold); }
 
 .story-extra { background: var(--cream); }
@@ -491,23 +530,26 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 }
 .form h2 { margin: 0 0 1rem; font-size: 1.6rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-.field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.8rem; }
-.field label { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.9rem; }
+.field label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .field input, .field select, .field textarea {
   background: var(--parchment);
   border: 1px solid var(--border);
-  padding: 0.7rem 0.8rem;
+  padding: 0.75rem 0.85rem;
   border-radius: 0;
   width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  scroll-margin-bottom: 7.5rem;
 }
 .field textarea { min-height: 110px; resize: vertical; }
 .form-status { min-height: 1.4em; color: var(--wine); font-size: 0.95rem; }
-.form button { width: 100%; }
+.form button { width: 100%; min-height: 48px; scroll-margin-bottom: 7.5rem; }
 
 .site-footer {
   background: #110B08;
   color: rgba(245, 240, 232, 0.72);
-  padding: 2rem clamp(1rem, 3vw, 2.5rem) 1.4rem;
+  padding: 2rem clamp(1rem, 3vw, 2.5rem) calc(1.4rem + 56px + 1.4rem + env(safe-area-inset-bottom));
 }
 .footer-grid {
   display: flex;
@@ -523,8 +565,21 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 .footer-name { margin: 0; font-style: italic; color: rgba(245, 240, 232, 0.86); }
 .site-footer a { color: var(--cream); }
 .site-footer p { margin: 0.2rem 0; }
-.footer-links { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; }
-.footer-links a { text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; list-style: none; margin: 0; padding: 0; }
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+.site-footer a[href^="tel"] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -539,8 +594,8 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 
 .whatsapp-chat {
   position: fixed;
-  right: 1.15rem;
-  bottom: 1.15rem;
+  right: calc(1.15rem + env(safe-area-inset-right));
+  bottom: calc(1.15rem + env(safe-area-inset-bottom));
   z-index: 80;
   width: 56px;
   height: 56px;
@@ -552,6 +607,26 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   box-shadow: 0 8px 18px rgba(17, 11, 8, 0.22);
   text-decoration: none;
 }
+/* The Shopify cart tab is hidden until the cart has an item, then it sits
+   bottom-right. WhatsApp stays above that slot so the two never overlap. */
+.shopify-buy-frame--toggle.is-sticky.is-active {
+  top: auto !important;
+  bottom: calc(1.15rem + env(safe-area-inset-bottom)) !important;
+  right: calc(1.15rem + env(safe-area-inset-right)) !important;
+  left: auto !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+.shopify-buy-frame--toggle.is-sticky.is-active iframe {
+  min-width: 64px !important;
+  min-height: 64px !important;
+}
+body:has(.shopify-buy-frame--toggle.is-active) .whatsapp-chat {
+  bottom: calc(1.15rem + 80px + 0.85rem + env(safe-area-inset-bottom));
+}
+body:has(.shopify-buy-frame--toggle.is-active) .site-footer {
+  padding-bottom: calc(1.4rem + 56px + 0.85rem + 80px + 1.4rem + env(safe-area-inset-bottom));
+}
 .whatsapp-chat svg { width: 32px; height: 32px; display: block; }
 .whatsapp-chat:hover,
 .whatsapp-chat:focus-visible { background: #1ebe57; }
@@ -562,7 +637,7 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   .gallery .wide { grid-row: auto; grid-column: span 2; height: 220px; }
 }
 @media (max-width: 860px) {
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle { display: inline-flex; margin-left: auto; }
   .site-nav {
     display: none;
     position: absolute;
@@ -570,11 +645,17 @@ h1, h2, h3, .logo-name, .footer-name, .price {
     left: 0; right: 0;
     background: var(--cream);
     border-bottom: 1px solid var(--border);
-    padding: 0.4rem 1.2rem 1rem;
+    padding: 0.35rem 1.2rem 0.6rem;
   }
   .site-nav.is-open { display: block; }
-  .site-nav ul { flex-direction: column; gap: 0.2rem; }
-  .site-nav a { display: block; padding: 0.7rem 0; }
+  .site-nav ul { flex-direction: column; gap: 0; }
+  .site-nav a {
+    display: flex;
+    min-height: 48px;
+    padding: 0.35rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
   .split, .contact-band, .product, .wine-block, .wine-block.reverse { grid-template-columns: 1fr; }
   .wine-block.reverse figure { order: 0; }
   .product-photo { position: static; }
@@ -582,16 +663,34 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   .valeur { border-right: none; border-bottom: 1px solid rgba(245, 240, 232, 0.08); }
   .gallery-page { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .section-head { align-items: flex-start; }
 }
 @media (max-width: 640px) {
-  .hero-photo { height: 52vh; min-height: 280px; }
+  .hero-photo { height: 52vh; min-height: 260px; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 0.15rem; margin-bottom: 1.2rem; }
   .vin-grid, .gallery, .gallery-page { grid-template-columns: 1fr; }
   .gallery .wide { grid-column: auto; height: auto; }
   .gallery img, .gallery-page img { height: 220px; }
-  .nav-phone { padding: 0.45rem 0.5rem; letter-spacing: 0.06em; font-size: 0.68rem; }
-  .logo-name { font-size: 1rem; }
-  .facts div { grid-template-columns: 1fr; gap: 0.1rem; }
-  .footer-bottom, .footer-grid { flex-direction: column; }
+  .vin-card .photo, .vin-card .soon-visual { height: 340px; }
+  .vin-card .body, .wine-copy { padding-right: 4.6rem; }
+  .form { padding-right: 5.2rem; }
+  .site-header { flex-wrap: wrap; row-gap: 0.45rem; }
+  .logo { flex: 1 1 auto; }
+  .nav-phone {
+    flex: 1 1 100%;
+    padding: 0.5rem 0.7rem;
+    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+  }
+  .logo img { height: 40px; width: 40px; }
+  .logo-name { font-size: 1.05rem; }
+  .eyebrow { font-size: 0.78rem; letter-spacing: 0.18em; }
+  .facts div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .footer-bottom, .footer-grid { flex-direction: column; align-items: flex-start; }
+  .footer-links { flex-direction: column; gap: 0; align-items: flex-start; }
+  .home-story h1 { font-size: clamp(2.15rem, 10vw, 2.8rem); }
+  .page-hero { padding-top: 1.6rem; }
+  .section { padding: 3.2rem 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
