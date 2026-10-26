@@ -175,16 +175,6 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 }
 .text-link:hover { color: var(--wine); border-color: var(--wine); }
 
-.band {
-  background: var(--wine);
-  padding: 1.6rem 1rem;
-}
-.band img {
-  width: min(920px, 100%);
-  height: auto;
-  margin: 0 auto;
-}
-
 .frise {
   height: 58px;
   background-color: transparent;
@@ -350,17 +340,21 @@ h1, h2, h3, .logo-name, .footer-name, .price {
   background: var(--dark);
   color: var(--cream);
 }
-.valeur { padding: 2.6rem 1.6rem; border-right: 1px solid rgba(245, 240, 232, 0.08); }
+.valeur {
+  padding: 3.2rem 2.2rem;
+  border-right: 1px solid rgba(245, 240, 232, 0.12);
+  text-align: center;
+}
 .valeur:last-child { border-right: none; }
 .valeur .num {
   font-family: "Playfair Display", Palatino, serif;
   font-style: italic;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   color: var(--gold);
-  opacity: 0.7;
+  opacity: 0.85;
 }
-.valeur h3 { margin: 0.4rem 0; font-size: 1.35rem; font-weight: 400; }
-.valeur p { margin: 0; color: rgba(245, 240, 232, 0.62); }
+.valeur h2 { margin: 0.55rem 0 0.8rem; font-size: 1.55rem; font-weight: 400; color: var(--cream); }
+.valeur p { margin: 0 auto; max-width: 22rem; color: rgba(245, 240, 232, 0.62); }
 
 .contact-band {
   display: grid;
