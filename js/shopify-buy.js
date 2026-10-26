@@ -5,8 +5,9 @@
   if (!nodes.length) return;
 
   var scriptURL = "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";
-  var siteBg = "#8c1212";
-  var siteHover = "#ee1f1f";
+  var siteBg = "#9d8467";
+  var siteHover = "#8a7358";
+  var siteText = "#2c241c";
 
   function loadScript() {
     var script = document.createElement("script");
@@ -19,8 +20,9 @@
   function buttonStyle(bg, hover, fullWidth) {
     var style = {
       "background-color": bg,
-      ":hover": { "background-color": hover },
-      ":focus": { "background-color": hover },
+      color: siteText,
+      ":hover": { "background-color": hover, color: siteText },
+      ":focus": { "background-color": hover, color: siteText },
       "border-radius": "16px",
     };
     if (fullWidth) {
@@ -108,9 +110,13 @@
         styles: {
           toggle: {
             "background-color": cartBg,
-            ":hover": { "background-color": cartHover },
-            ":focus": { "background-color": cartHover },
+            color: siteText,
+            ":hover": { "background-color": cartHover, color: siteText },
+            ":focus": { "background-color": cartHover, color: siteText },
+            "border-radius": "16px",
           },
+          count: { color: siteText },
+          iconPath: { fill: siteText },
         },
       },
     };

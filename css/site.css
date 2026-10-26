@@ -177,12 +177,16 @@ h1, h2, h3, .logo-name, .footer-name, .price {
 
 .band {
   background: var(--wine);
-  padding: 1.6rem 1rem;
+  padding: 0.4rem 1rem;
 }
 .band img {
-  width: min(920px, 100%);
+  display: block;
+  width: min(560px, 88%);
   height: auto;
   margin: 0 auto;
+}
+.band + .split {
+  margin-top: 1.5rem;
 }
 
 .frise {
